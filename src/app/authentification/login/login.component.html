@@ -1,0 +1,86 @@
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onLogin(loginForm)"
+   #loginForm="ngForm"
+    *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput
+       name="email"
+        ngModel type="email"
+         placeholder="E-Mail"
+          #emailInput="ngModel"
+           required
+           email>
+      <mat-error *ngIf="emailInput.invalid">Please enter a valid email.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput
+      type="password"
+      name="password"
+      ngModel
+        placeholder="Password"
+         #passwordInput="ngModel" required>
+      <mat-error *ngIf="passwordInput.invalid">Please enter a valid password.</mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Login</button>
+  </form>
+</mat-card>
+
+
+<div class="container">
+  <form action="/action_page.php" (submit)="onLogin(loginForm)"
+  #loginForm="ngForm">
+    <div class="row">
+      <h2 style="text-align:center">Login with Social Media or Manually</h2>
+      <div class="vl">
+        <span class="vl-innertext">or</span>
+      </div>
+
+      <div class="col">
+        <a href="#" class="fb btn">
+          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+        </a>
+        <a href="#" class="twitter btn">
+          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+        </a>
+        <a href="#" class="google btn">
+          <i class="fa fa-google fa-fw"></i> Login with Google+
+        </a>
+      </div>
+
+      <div class="col">
+        <div class="hide-md-lg">
+          <p>Or sign in manually:</p>
+        </div>
+
+        <input type="text" name="username" placeholder="Username" required matInput
+        name="email"
+         ngModel type="email"
+          placeholder="E-Mail"
+           #emailInput="ngModel"
+            required
+            email>
+        <input type="password" name="password" placeholder="Password"  matInput
+        type="password"
+        name="password"
+        ngModel
+          placeholder="Password"
+           #passwordInput="ngModel" required>
+        <button mat-raised-button color="accent" type="submit" >Login</button>
+
+      </div>
+
+    </div>
+  </form>
+</div>
+
+<div class="bottom-container">
+  <div class="row">
+    <div class="col">
+      <a href="#" style="color:white" class="btn" routerLink="/signup" >Sign up</a>
+    </div>
+    <div class="col">
+      <a href="#" style="color:white" class="btn">Forgot password?</a>
+    </div>
+  </div>
+</div>
